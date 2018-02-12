@@ -13,11 +13,15 @@
 		AB2850C32024A3AF00DC93CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB2850C22024A3AF00DC93CC /* Assets.xcassets */; };
 		AB2850C62024A3AF00DC93CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2850C42024A3AF00DC93CC /* LaunchScreen.storyboard */; };
 		AB2850D42024A4DE00DC93CC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2850D22024A4DE00DC93CC /* SWRevealViewController.m */; };
+		AB42E2BE202A0CEE0050C8D2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB42E2BD202A0CEE0050C8D2 /* AuthService.swift */; };
 		AB4598102024E72800114A19 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45980F2024E72800114A19 /* ChatVC.swift */; };
 		AB4598122024E73F00114A19 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4598112024E73F00114A19 /* ChannelVC.swift */; };
 		AB4598142025871F00114A19 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4598132025871F00114A19 /* GradientView.swift */; };
 		AB4598172025B62C00114A19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4598162025B62C00114A19 /* Constants.swift */; };
 		AB4598192025C58F00114A19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4598182025C58F00114A19 /* LoginVC.swift */; };
+		AB45981B2025CBCE00114A19 /* CreateLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB45981A2025CBCE00114A19 /* CreateLoginVC.swift */; };
+		ABBA63C4202EEC7D00FED935 /* RoundedCornerBtns.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBA63C3202EEC7D00FED935 /* RoundedCornerBtns.swift */; };
+		ABF5A21620316DE000D1AB0D /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5A21520316DE000D1AB0D /* UserDataService.swift */; };
 		EA7D976D4D5A6CFE11C7221C /* Pods_SmackAppFirst.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D00DC4CD947161B8832861 /* Pods_SmackAppFirst.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,11 +38,15 @@
 		AB2850D12024A4DD00DC93CC /* SmackAppFirst-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmackAppFirst-Bridging-Header.h"; sourceTree = "<group>"; };
 		AB2850D22024A4DE00DC93CC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		AB2850D32024A4DE00DC93CC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		AB42E2BD202A0CEE0050C8D2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AB45980F2024E72800114A19 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		AB4598112024E73F00114A19 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		AB4598132025871F00114A19 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AB4598162025B62C00114A19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AB4598182025C58F00114A19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		AB45981A2025CBCE00114A19 /* CreateLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoginVC.swift; sourceTree = "<group>"; };
+		ABBA63C3202EEC7D00FED935 /* RoundedCornerBtns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerBtns.swift; sourceTree = "<group>"; };
+		ABF5A21520316DE000D1AB0D /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		DCF8953071FC2261C97FBAE5 /* Pods-SmackAppFirst.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackAppFirst.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackAppFirst/Pods-SmackAppFirst.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +100,7 @@
 		AB2850BA2024A3AF00DC93CC /* SmackAppFirst */ = {
 			isa = PBXGroup;
 			children = (
+				AB42E2BC202A0CD70050C8D2 /* Services */,
 				AB4598152025B60F00114A19 /* Utilities */,
 				AB45980E2024E70D00114A19 /* Views */,
 				AB45980D2024E70600114A19 /* Models */,
@@ -117,12 +126,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AB42E2BC202A0CD70050C8D2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AB42E2BD202A0CEE0050C8D2 /* AuthService.swift */,
+				ABF5A21520316DE000D1AB0D /* UserDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AB45980C2024E6FC00114A19 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				AB45980F2024E72800114A19 /* ChatVC.swift */,
 				AB4598112024E73F00114A19 /* ChannelVC.swift */,
 				AB4598182025C58F00114A19 /* LoginVC.swift */,
+				AB45981A2025CBCE00114A19 /* CreateLoginVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				AB4598132025871F00114A19 /* GradientView.swift */,
+				ABBA63C3202EEC7D00FED935 /* RoundedCornerBtns.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,7 +311,11 @@
 				AB4598192025C58F00114A19 /* LoginVC.swift in Sources */,
 				AB4598142025871F00114A19 /* GradientView.swift in Sources */,
 				AB2850BC2024A3AF00DC93CC /* AppDelegate.swift in Sources */,
+				AB42E2BE202A0CEE0050C8D2 /* AuthService.swift in Sources */,
+				ABF5A21620316DE000D1AB0D /* UserDataService.swift in Sources */,
 				AB4598172025B62C00114A19 /* Constants.swift in Sources */,
+				ABBA63C4202EEC7D00FED935 /* RoundedCornerBtns.swift in Sources */,
+				AB45981B2025CBCE00114A19 /* CreateLoginVC.swift in Sources */,
 				AB2850D42024A4DE00DC93CC /* SWRevealViewController.m in Sources */,
 				AB4598122024E73F00114A19 /* ChannelVC.swift in Sources */,
 			);
