@@ -19,6 +19,14 @@ class ChatVC: UIViewController {
         revealBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        if AuthService.instance.loginStatus {
+            AuthService.instance.userByData(completion: { (success) in
+                if success {
+                    NotificationCenter.default.post(name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
+                }
+            })
+        }
     
     }
 

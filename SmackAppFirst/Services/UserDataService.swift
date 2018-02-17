@@ -29,4 +29,44 @@ class UserDataService {
     func setAvatarName(avatarName: String){
         self.avatarName = avatarName
     }
+    
+    func logoutUser () {
+        id = ""
+        name = ""
+        email = ""
+        avatarColor = ""
+        avatarName = ""
+        AuthService.instance.loginStatus = false
+        AuthService.instance.authToken = ""
+        AuthService.instance.userEmail = ""
+    }
+    
+    func returnColor (colorString: String) -> UIColor {
+//      Extracts r g b a values from db [0.454901960784314, 0.909803921568627, 0.294117647058824, 1]
+        let defaultColor = UIColor.lightGray
+        let scanner = Scanner(string: colorString)
+        let skipped = CharacterSet(charactersIn: "[], ]")
+        let comma = CharacterSet(charactersIn: ",")
+        scanner.charactersToBeSkipped = skipped
+        var r, g, b, a: NSString?
+        scanner.scanUpToCharacters(from: comma, into: &r)
+        scanner.scanUpToCharacters(from: comma, into: &g)
+        scanner.scanUpToCharacters(from: comma, into: &b)
+        scanner.scanUpToCharacters(from: comma, into: &a)
+        
+        guard let rUnwrapped = r else { return defaultColor }
+        guard let gUnwrapped = g else { return defaultColor }
+        guard let bUnwrapped = b else { return defaultColor }
+        guard let aUnwrapped = a else { return defaultColor }
+        
+        let rFloat = CGFloat(rUnwrapped.floatValue)
+        let gFloat = CGFloat(gUnwrapped.floatValue)
+        let bFloat = CGFloat(bUnwrapped.floatValue)
+        let aFloat = CGFloat(aUnwrapped.floatValue)
+        
+        let backgroundColor = UIColor(red: rFloat, green: gFloat, blue: bFloat, alpha: aFloat)
+        
+        return backgroundColor
+    }
+
 }

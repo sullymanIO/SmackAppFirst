@@ -15,18 +15,64 @@ class CreateLoginVC: UIViewController {
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
-    let avatarName: String = "profileDefault"
-    let avatarColor: String = "[0.5, 0.5, 0.5, 1]"
+    @IBOutlet weak var pickAvatarBtn: UIButton!
+    
+    // Variables
+    var avatarName: String = "profileDefault"
+    var avatarColor: String = "[0.5, 0.5, 0.5, 1]"
+    var bgColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupView()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            profileImageView.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
+        if bgColor == nil && avatarName.contains("light") {
+            profileImageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        }
+        
+    }
+    
+    @IBAction func generateColorBtnPressed(_ sender: Any) {
+        let r = CGFloat(arc4random_uniform(255))/255
+        let g = CGFloat(arc4random_uniform(255))/255
+        let b = CGFloat(arc4random_uniform(255))/255
+        
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
+        UIView.animate(withDuration: 0.3) {
+            self.profileImageView.backgroundColor = self.bgColor
+        }
+        
+    }
+    @IBAction func pickAvatarBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_PICK_AVATAR, sender: nil)
+    }
+    
     @IBAction func closeCreateAccountBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_UNWIND_TO_CHANNEL, sender: nil)
     }
+    
+    
+    func setupView() {
+        userNameTxtField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: PLACEHOLDER_COLOR])
+        emailTxtField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor: PLACEHOLDER_COLOR])
+        passwordTxtField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: PLACEHOLDER_COLOR])
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func tapGesture() {
+        view.endEditing(true)
+    }
+    
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         guard let email = emailTxtField.text , emailTxtField.text != "" else {
             return
@@ -37,6 +83,14 @@ class CreateLoginVC: UIViewController {
         guard let userName = userNameTxtField.text , userNameTxtField.text != "" else {
             return
         }
+        
+        func setProfileAvatar (imageName: String)
+        {
+            profileImageView.image = UIImage (named: imageName)
+            avatarName = imageName
+        }
+
+        
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray) // Create the activity indicator
         view.addSubview(activityIndicator) // add it as a  subview
         activityIndicator.center = CGPoint(x: view.frame.size.width*0.5, y: view.frame.size.height*0.5) // put in the middle
@@ -53,7 +107,9 @@ class CreateLoginVC: UIViewController {
                                 print("User Added!")
                                 activityIndicator.stopAnimating() // On response stop animating
                                 activityIndicator.removeFromSuperview() // remove the view
+                                
                                 self.performSegue(withIdentifier: TO_UNWIND_TO_CHANNEL, sender: nil)
+                                NotificationCenter.default.post(name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
                             } else {
                                 print("Failed to add user")
                                 activityIndicator.stopAnimating()

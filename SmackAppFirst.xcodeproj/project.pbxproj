@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB051C2A2031F90B00E71F6A /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB051C292031F90B00E71F6A /* AvatarPickerVC.swift */; };
+		AB051C2C203200DB00E71F6A /* AvatarPickerCelll.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB051C2B203200DB00E71F6A /* AvatarPickerCelll.swift */; };
+		AB054FDD20357CCD0042A85D /* RoundedUiImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB054FDC20357CCD0042A85D /* RoundedUiImages.swift */; };
+		AB09557F203826F9005F433A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09557D203826F9005F433A /* ProfileVC.swift */; };
+		AB095580203826F9005F433A /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB09557E203826F9005F433A /* ProfileVC.xib */; };
 		AB2850BC2024A3AF00DC93CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2850BB2024A3AF00DC93CC /* AppDelegate.swift */; };
 		AB2850BE2024A3AF00DC93CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2850BD2024A3AF00DC93CC /* ViewController.swift */; };
 		AB2850C12024A3AF00DC93CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2850BF2024A3AF00DC93CC /* Main.storyboard */; };
@@ -28,6 +33,11 @@
 /* Begin PBXFileReference section */
 		01D00DC4CD947161B8832861 /* Pods_SmackAppFirst.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackAppFirst.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E387F6C1FF1EBD87A39C988 /* Pods-SmackAppFirst.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackAppFirst.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmackAppFirst/Pods-SmackAppFirst.release.xcconfig"; sourceTree = "<group>"; };
+		AB051C292031F90B00E71F6A /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
+		AB051C2B203200DB00E71F6A /* AvatarPickerCelll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerCelll.swift; sourceTree = "<group>"; };
+		AB054FDC20357CCD0042A85D /* RoundedUiImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUiImages.swift; sourceTree = "<group>"; };
+		AB09557D203826F9005F433A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		AB09557E203826F9005F433A /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
 		AB2850B82024A3AF00DC93CC /* SmackAppFirst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackAppFirst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2850BB2024A3AF00DC93CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB2850BD2024A3AF00DC93CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +89,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AB09558120382700005F433A /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				AB09557E203826F9005F433A /* ProfileVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		AB2850AF2024A3AF00DC93CC = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +118,7 @@
 		AB2850BA2024A3AF00DC93CC /* SmackAppFirst */ = {
 			isa = PBXGroup;
 			children = (
+				AB09558120382700005F433A /* XIBs */,
 				AB42E2BC202A0CD70050C8D2 /* Services */,
 				AB4598152025B60F00114A19 /* Utilities */,
 				AB45980E2024E70D00114A19 /* Views */,
@@ -142,6 +161,8 @@
 				AB4598112024E73F00114A19 /* ChannelVC.swift */,
 				AB4598182025C58F00114A19 /* LoginVC.swift */,
 				AB45981A2025CBCE00114A19 /* CreateLoginVC.swift */,
+				AB051C292031F90B00E71F6A /* AvatarPickerVC.swift */,
+				AB09557D203826F9005F433A /* ProfileVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +179,8 @@
 			children = (
 				AB4598132025871F00114A19 /* GradientView.swift */,
 				ABBA63C3202EEC7D00FED935 /* RoundedCornerBtns.swift */,
+				AB051C2B203200DB00E71F6A /* AvatarPickerCelll.swift */,
+				AB054FDC20357CCD0042A85D /* RoundedUiImages.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB095580203826F9005F433A /* ProfileVC.xib in Resources */,
 				AB2850C62024A3AF00DC93CC /* LaunchScreen.storyboard in Resources */,
 				AB2850C32024A3AF00DC93CC /* Assets.xcassets in Resources */,
 				AB2850C12024A3AF00DC93CC /* Main.storyboard in Resources */,
@@ -309,6 +333,9 @@
 				AB4598102024E72800114A19 /* ChatVC.swift in Sources */,
 				AB2850BE2024A3AF00DC93CC /* ViewController.swift in Sources */,
 				AB4598192025C58F00114A19 /* LoginVC.swift in Sources */,
+				AB054FDD20357CCD0042A85D /* RoundedUiImages.swift in Sources */,
+				AB09557F203826F9005F433A /* ProfileVC.swift in Sources */,
+				AB051C2C203200DB00E71F6A /* AvatarPickerCelll.swift in Sources */,
 				AB4598142025871F00114A19 /* GradientView.swift in Sources */,
 				AB2850BC2024A3AF00DC93CC /* AppDelegate.swift in Sources */,
 				AB42E2BE202A0CEE0050C8D2 /* AuthService.swift in Sources */,
@@ -318,6 +345,7 @@
 				AB45981B2025CBCE00114A19 /* CreateLoginVC.swift in Sources */,
 				AB2850D42024A4DE00DC93CC /* SWRevealViewController.m in Sources */,
 				AB4598122024E73F00114A19 /* ChannelVC.swift in Sources */,
+				AB051C2A2031F90B00E71F6A /* AvatarPickerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
