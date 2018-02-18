@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmackAppFirst/Controllers/CreateLoginVC.swift"
-            timestampString = "540561941.8643"
+            timestampString = "540640079.646171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmackAppFirst/Controllers/CreateLoginVC.swift"
-            timestampString = "540561941.86448"
+            timestampString = "540640079.646259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmackAppFirst/Controllers/ChannelVC.swift"
-            timestampString = "540596653.4273781"
+            timestampString = "540640344.508868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -218,12 +218,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmackAppFirst/Controllers/ChannelVC.swift"
-            timestampString = "540596653.4275039"
+            timestampString = "540640344.508947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
             landmarkName = "setupUserInfo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmackAppFirst/Services/MessageService.swift"
+            timestampString = "540640344.508992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getChannels(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

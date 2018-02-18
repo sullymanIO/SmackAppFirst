@@ -23,6 +23,12 @@ class ChatVC: UIViewController {
         if AuthService.instance.loginStatus {
             AuthService.instance.userByData(completion: { (success) in
                 if success {
+                    MessageService.instance.getChannels(completion: { (success) in
+                        if success {
+                            print(MessageService.instance.channels)
+                        }
+                        
+                    })
                     NotificationCenter.default.post(name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
                 }
             })

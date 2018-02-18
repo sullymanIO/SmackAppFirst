@@ -12,6 +12,9 @@
 		AB054FDD20357CCD0042A85D /* RoundedUiImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB054FDC20357CCD0042A85D /* RoundedUiImages.swift */; };
 		AB09557F203826F9005F433A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09557D203826F9005F433A /* ProfileVC.swift */; };
 		AB095580203826F9005F433A /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB09557E203826F9005F433A /* ProfileVC.xib */; };
+		AB09C2BD203968D3002F4750 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09C2BC203968D3002F4750 /* MessageService.swift */; };
+		AB09C2BF203969C1002F4750 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09C2BE203969C1002F4750 /* Channel.swift */; };
+		AB09C2C120397D6F002F4750 /* DecoderWayOfDoingChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB09C2C020397D6F002F4750 /* DecoderWayOfDoingChannels.swift */; };
 		AB2850BC2024A3AF00DC93CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2850BB2024A3AF00DC93CC /* AppDelegate.swift */; };
 		AB2850BE2024A3AF00DC93CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2850BD2024A3AF00DC93CC /* ViewController.swift */; };
 		AB2850C12024A3AF00DC93CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB2850BF2024A3AF00DC93CC /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 		AB054FDC20357CCD0042A85D /* RoundedUiImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUiImages.swift; sourceTree = "<group>"; };
 		AB09557D203826F9005F433A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		AB09557E203826F9005F433A /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		AB09C2BC203968D3002F4750 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		AB09C2BE203969C1002F4750 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AB09C2C020397D6F002F4750 /* DecoderWayOfDoingChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderWayOfDoingChannels.swift; sourceTree = "<group>"; };
 		AB2850B82024A3AF00DC93CC /* SmackAppFirst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackAppFirst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2850BB2024A3AF00DC93CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB2850BD2024A3AF00DC93CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			children = (
 				AB42E2BD202A0CEE0050C8D2 /* AuthService.swift */,
 				ABF5A21520316DE000D1AB0D /* UserDataService.swift */,
+				AB09C2BC203968D3002F4750 /* MessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 		AB45980D2024E70600114A19 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AB09C2BE203969C1002F4750 /* Channel.swift */,
+				AB09C2C020397D6F002F4750 /* DecoderWayOfDoingChannels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,8 +345,11 @@
 				AB054FDD20357CCD0042A85D /* RoundedUiImages.swift in Sources */,
 				AB09557F203826F9005F433A /* ProfileVC.swift in Sources */,
 				AB051C2C203200DB00E71F6A /* AvatarPickerCelll.swift in Sources */,
+				AB09C2BD203968D3002F4750 /* MessageService.swift in Sources */,
+				AB09C2BF203969C1002F4750 /* Channel.swift in Sources */,
 				AB4598142025871F00114A19 /* GradientView.swift in Sources */,
 				AB2850BC2024A3AF00DC93CC /* AppDelegate.swift in Sources */,
+				AB09C2C120397D6F002F4750 /* DecoderWayOfDoingChannels.swift in Sources */,
 				AB42E2BE202A0CEE0050C8D2 /* AuthService.swift in Sources */,
 				ABF5A21620316DE000D1AB0D /* UserDataService.swift in Sources */,
 				AB4598172025B62C00114A19 /* Constants.swift in Sources */,
