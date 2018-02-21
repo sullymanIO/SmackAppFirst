@@ -10,5 +10,5 @@ target 'SmackAppFirst' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.6'
   pod 'Socket.IO-Client-Swift', '~> 13.1'
-
+  
 end

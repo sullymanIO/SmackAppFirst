@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    // Outlets
+    @IBOutlet weak var channelTableView: UITableView!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var profilePicImage: RoundedUiImages!
     
     @IBAction func prepareForUnwindVC(segue: UIStoryboardSegue){
-        
         
     }
     override func viewDidLoad() {
@@ -22,12 +23,24 @@ class ChannelVC: UIViewController {
         self.revealViewController().rearViewRevealWidth = view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginStatus), name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
         
+        channelTableView.delegate = self
+        channelTableView.dataSource = self
+
+        
     }
     override func viewDidAppear(_ animated: Bool) {
+        SocketService.instance.getChannel { (success) in
+            self.channelTableView.reloadData()
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadTable), name: TO_NOTIFY_CHANNELS_UPLOADED, object: nil)
         setupUserInfo()
     }
     @objc func loginStatus(_ userDataDidChange: Notification) {
         setupUserInfo()
+    }
+    
+    @objc func reloadTable() {
+        channelTableView.reloadData()
     }
     
     func setupUserInfo () {
@@ -53,7 +66,27 @@ class ChannelVC: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.channels.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath) as? ChannelCell {
+            cell.configureCell(channel: MessageService.instance.channels[indexPath.item])
+            return cell
+        }
+        
+        return ChannelCell()
+    }
+    @IBAction func addChannelBtnPressed(_ sender: Any) {
+        let addChannel = CreateChannelVC()
+        addChannel.modalPresentationStyle = .custom
+        present(addChannel, animated: true, completion: nil)
+    }
+    
+    
+    
+
     
 }
 

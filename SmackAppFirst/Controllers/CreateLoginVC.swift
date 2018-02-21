@@ -107,9 +107,9 @@ class CreateLoginVC: UIViewController {
                                 print("User Added!")
                                 activityIndicator.stopAnimating() // On response stop animating
                                 activityIndicator.removeFromSuperview() // remove the view
-                                
-                                self.performSegue(withIdentifier: TO_UNWIND_TO_CHANNEL, sender: nil)
                                 NotificationCenter.default.post(name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
+                                self.performSegue(withIdentifier: TO_UNWIND_TO_CHANNEL, sender: nil)
+                                
                             } else {
                                 print("Failed to add user")
                                 activityIndicator.stopAnimating()

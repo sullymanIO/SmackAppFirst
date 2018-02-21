@@ -41,6 +41,26 @@ class MessageService {
                 
             }
         }
+    
+    func addChannel(channelName: String, channelDescription: String, completion: @escaping completionHandler) {
+//    {
+//        "name": "random",
+//        "description": "this is the random channel, talk about whatevs!"
+//        }
+        let body = [
+            "name": channelName,
+            "description": channelDescription
+        ]
+        Alamofire.request(CREATE_CHANNEL_URL, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseString { (response) in
+            if response.result.error == nil {
+                print("channel saved successfully")
+                completion(true)
+            } else {
+                debugPrint(response.result.error as Any)
+                completion (false)
+            }
+        }
+    }
 //   this function is the latest way of decoding json
 //    func doItWithDecoder (completion: @escaping completionHandler) {
 //

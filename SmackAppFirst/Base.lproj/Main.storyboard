@@ -58,6 +58,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZI-R0-m0u">
                                 <rect key="frame" x="281" y="55" width="22" height="70"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelBtnPressed:" destination="F3C-dH-Cez" eventType="touchUpInside" id="qSY-vk-OYa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msf-np-gfT">
                                 <rect key="frame" x="110" y="577" width="45" height="70"/>
@@ -79,6 +82,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-Hb-u9v">
                                 <rect key="frame" x="0.0" y="112" width="375" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelCell" rowHeight="54" id="UmS-SQ-BtX" customClass="ChannelCell" customModule="SmackAppFirst" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UmS-SQ-BtX" id="zhE-WW-p8b">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aci-HS-rGc">
+                                                    <rect key="frame" x="20" y="14.5" width="75" height="26"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aci-HS-rGc" firstAttribute="centerY" secondItem="zhE-WW-p8b" secondAttribute="centerY" id="8Fe-SE-bvb"/>
+                                                <constraint firstItem="aci-HS-rGc" firstAttribute="leading" secondItem="zhE-WW-p8b" secondAttribute="leading" constant="20" id="lxe-as-vjZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="channelNameLbl" destination="aci-HS-rGc" id="pxH-rM-hRQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,6 +133,7 @@
                         <viewLayoutGuide key="safeArea" id="EDP-Xp-pGT"/>
                     </view>
                     <connections>
+                        <outlet property="channelTableView" destination="2CA-Hb-u9v" id="g3c-Y3-MMv"/>
                         <outlet property="loginBtn" destination="Msf-np-gfT" id="xck-Tm-x4j"/>
                         <outlet property="profilePicImage" destination="XZL-vp-wTz" id="PJl-16-MOT"/>
                         <segue destination="EWV-qe-tkX" kind="show" identifier="toLogin" id="TuB-Ey-VfF"/>

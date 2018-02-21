@@ -23,6 +23,7 @@ let PLACEHOLDER_COLOR: UIColor = #colorLiteral(red: 0.5157704353, green: 0.04799
 
 // Notifications
 let TO_NOTIFY_USER_DATA_CHANGED = Notification.Name("notifyUserDataChanged")
+let TO_NOTIFY_CHANNELS_UPLOADED = Notification.Name("channelsUploaded")
 
 //  Handlers
 typealias completionHandler = (_ Success: Bool) -> ()
@@ -33,6 +34,8 @@ let LOGIN_URL = "\(BASE_URL)account/login"
 let ADD_USER_URL = "\(BASE_URL)user/add"
 let FIND_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/"
 let FIND_ALL_CHANNELS = "\(BASE_URL)channel"
+let CREATE_CHANNEL_URL = "\(BASE_URL)channel/add"
+
 
 // Headers
 let BEARER_HEADER = [
