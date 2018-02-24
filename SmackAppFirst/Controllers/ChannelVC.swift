@@ -80,8 +80,12 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let channel: Channel = MessageService.instance.channels[indexPath.item]
         MessageService.instance.updateChannelName(channel: channel)
-        NotificationCenter.default.post(name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
-        self.revealViewController().revealToggle(animated: true)
+        MessageService.instance.clearAllMessagesForChannel()
+        MessageService.instance.getAllMessages { (success) in
+            NotificationCenter.default.post(name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
+            self.revealViewController().revealToggle(animated: true)
+        }
+
     }
     @IBAction func addChannelBtnPressed(_ sender: Any) {
         let addChannel = CreateChannelVC()

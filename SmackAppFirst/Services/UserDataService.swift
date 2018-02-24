@@ -40,6 +40,7 @@ class UserDataService {
         AuthService.instance.authToken = ""
         AuthService.instance.userEmail = ""
         MessageService.instance.clearChannels()
+        MessageService.instance.clearAllMessagesForChannel()
         NotificationCenter.default.post(name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
         
     }

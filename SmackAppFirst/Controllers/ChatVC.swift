@@ -19,6 +19,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private(set) public var headerName: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        messageTableView.estimatedRowHeight = 80
+        messageTableView.rowHeight = UITableViewAutomaticDimension
         messageTableView.delegate = self
         messageTableView.dataSource = self
         // shifts the view up
@@ -31,8 +33,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
-        
-        if AuthService.instance.loginStatus {
+        SocketService.instance.getChatMessage { (success) in
+            if success {
+                self.messageTableView.reloadData()
+                self.setChatView()
+            }
+        }
+        if AuthService.instance.loginStatus && MessageService.instance.selectedChannel == nil {
             AuthService.instance.userByData(completion: { (success) in
                 if success {
                     self.onLoginGetMessages()
@@ -47,6 +54,13 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func viewTapped() {
         view.endEditing(true)
+    }
+    
+    func setChatView() {
+        if MessageService.instance.messages.count > 0 {
+            let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+            self.messageTableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+        }
     }
     
     func onLoginGetMessages() {
@@ -67,7 +81,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func channelSelected(_ :Notification) {
-        
+        self.messageTableView.reloadData()
+        self.setChatView()
         setHeaderWithChannelName()
     }
 
@@ -76,6 +91,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if success {
                 print(MessageService.instance.messages)
                 self.messageTableView.reloadData()
+                self.setChatView()
                 self.setHeaderWithChannelName()
                 
             }
@@ -83,7 +99,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     func setHeaderWithChannelName() {
         if let channelName = MessageService.instance.selectedChannel?.channel, MessageService.instance.selectedChannel?.channel != ""{
-        headerLbl.text = "#\(channelName)"
+            headerLbl.text = "#\(channelName)"
+            
         } else {
             headerLbl.text = "Smack"
         }
@@ -100,7 +117,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         SocketService.instance.sendMessage(message: message) { (success) in
             if success {
                 self.messageTxtField.text = ""
-                
+                self.messageTableView.reloadData()
+
             }
         }
     }
@@ -113,9 +131,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as? MessageCell {
             cell.configureCell(message: MessageService.instance.messages[indexPath.row])
             return cell
+            
         } else {
             return UITableViewCell()
         }
+    
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -67,6 +67,10 @@ class MessageService {
         selectedChannel = nil
     }
     
+    func clearAllMessagesForChannel() {
+        self.messages = []
+    }
+    
     func updateChannelName(channel: Channel) {
         selectedChannel = channel
     }
