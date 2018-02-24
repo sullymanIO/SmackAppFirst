@@ -47,5 +47,13 @@ class SocketService: NSObject {
         }
     }
     
+    func sendMessage(message: String, completion: @escaping completionHandler) {
+        // client.on('newMessage', function(messageBody, userId, channelId, userName, userAvatar, userAvatarColor)
+        let user = UserDataService.instance
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        socket.emit("newMessage", message, user.id, channelId, user.name, user.avatarName, user.avatarColor)
+        completion(true)
+    }
+    
 
 }

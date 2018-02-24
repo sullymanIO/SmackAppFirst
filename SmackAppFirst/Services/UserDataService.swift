@@ -39,6 +39,9 @@ class UserDataService {
         AuthService.instance.loginStatus = false
         AuthService.instance.authToken = ""
         AuthService.instance.userEmail = ""
+        MessageService.instance.clearChannels()
+        NotificationCenter.default.post(name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
+        
     }
     
     func returnColor (colorString: String) -> UIColor {

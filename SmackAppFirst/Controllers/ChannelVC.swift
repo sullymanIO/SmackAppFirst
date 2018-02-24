@@ -22,19 +22,17 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = view.frame.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(self.loginStatus), name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadTable), name: TO_NOTIFY_CHANNELS_UPLOADED, object: nil)
+        setupUserInfo()
+        SocketService.instance.getChannel { (success) in
+            self.channelTableView.reloadData()
+        }
         
         channelTableView.delegate = self
         channelTableView.dataSource = self
 
-        
     }
-    override func viewDidAppear(_ animated: Bool) {
-        SocketService.instance.getChannel { (success) in
-            self.channelTableView.reloadData()
-        }
-        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadTable), name: TO_NOTIFY_CHANNELS_UPLOADED, object: nil)
-        setupUserInfo()
-    }
+
     @objc func loginStatus(_ userDataDidChange: Notification) {
         setupUserInfo()
     }
@@ -78,15 +76,19 @@ class ChannelVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
         
         return ChannelCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel: Channel = MessageService.instance.channels[indexPath.item]
+        MessageService.instance.updateChannelName(channel: channel)
+        NotificationCenter.default.post(name: TO_NOTIFY_CHANNEL_NAME_CHANGED, object: nil)
+        self.revealViewController().revealToggle(animated: true)
+    }
     @IBAction func addChannelBtnPressed(_ sender: Any) {
         let addChannel = CreateChannelVC()
         addChannel.modalPresentationStyle = .custom
         present(addChannel, animated: true, completion: nil)
     }
     
-    
-    
-
     
 }
 

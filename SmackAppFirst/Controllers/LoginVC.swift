@@ -32,6 +32,12 @@ class LoginVC: UIViewController {
             if success {
                 AuthService.instance.userByData(completion: { (success) in
                     if success {
+                        MessageService.instance.getChannels(completion: { (success) in
+                            if success {
+                                NotificationCenter.default.post(name: TO_NOTIFY_CHANNELS_UPLOADED, object: nil)
+                            }
+                            
+                        })
                         NotificationCenter.default.post(name: TO_NOTIFY_USER_DATA_CHANGED, object: nil)
                             self.activityIndicator.stopAnimating()
                             self.activityIndicator.isHidden = true
